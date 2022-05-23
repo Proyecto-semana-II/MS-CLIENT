@@ -28,7 +28,7 @@ public class ClientController  extends Shared{
 	  @Autowired
 	    IClientService service;
 
-	    @GetMapping("/getCustomer")   
+	    @GetMapping("/getClient")   
 	    public Mono<ResponseEntity<Flux<Client>>> getCustomer(){
 	       return Mono.just(ResponseEntity.ok()  
 	    		   .contentType(MediaType.APPLICATION_JSON)
@@ -52,7 +52,7 @@ public class ClientController  extends Shared{
 	        return 	service.findPersonByIdTypeClient(idTypeClient);
 	    }
 
-	    @PostMapping("/postCustomer")
+	    @PostMapping("/postClient")
 	    Mono<ResponseEntity<Client>> postCustomer(@RequestBody Client client){
 	    	client.setRegistrationStatus(Constants.ESTADO_VIGENTE);
 	    	client.setAudit(getBeanCreationParameters());
